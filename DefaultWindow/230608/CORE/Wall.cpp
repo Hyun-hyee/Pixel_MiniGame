@@ -15,11 +15,21 @@ CWall::~CWall()
 void CWall::Initialize(void)
 {
 	//RECT,Collide,FrontCollide 업데이트
-	__super::Update_Rect();
+	m_fAngle = 0.f;
 }
 
 void CWall::Update(void)
 {
+	D3DXMATRIX	matScale, matRotZ, matTrans;
+
+	D3DXMatrixScaling(&matScale, 1.f, 1.f, 1.f);
+	D3DXMatrixRotationZ(&matRotZ, m_fAngle);
+	D3DXMatrixTranslation(&matTrans, m_vInfo.vPos.x, m_vInfo.vPos.y, 0.f);
+
+	m_vInfo.matWorld = matScale * matRotZ * matTrans;
+
+	CObj::UpdatePoint();	
+	__super::Update_Rect();
 }
 
 void CWall::LateUpdate(void)
@@ -28,7 +38,6 @@ void CWall::LateUpdate(void)
 
 void CWall::Render(HDC hDC)
 {
-	if (g_CollideCheck)
 		CObj::CollideRender(hDC);
 }
 

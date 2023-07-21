@@ -45,7 +45,8 @@ public :
 	void			UpdatePoint();
 	vector<D3DXVECTOR3>	GetPoint() { return m_vPoint; }
 	void			SetPos(float _x, float _y) { m_vInfo.vPos.x = _x; m_vInfo.vPos.y = _y; }
-
+	void			AddPoint(float _x, float _y) { m_vPoint.push_back({ _x,_y,0.f }); m_vOriginPoint.push_back({ _x,_y,0.f });
+	}
 
 
 protected:

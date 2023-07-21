@@ -45,10 +45,8 @@ void CFirstStage::Initialize()
 	//CObjMgr::Get_Instance()->Add_Object(PLAYER, CObjFactory<CPlayer>::Create());
 	
 	CObj* Temp = CObjFactory<CPlayer>::Create();
-	Temp->SetPos(WINCX * 0.5f -0.f, WINCY * 0.5f - 200);
-	//Temp->SetPos(100.f,100);
+	Temp->SetPos(100.f, WINCY * 0.5f - 200);
 	CObjMgr::Get_Instance()->Add_Object(OBJ_NONE, Temp);
-	
 
 }
 

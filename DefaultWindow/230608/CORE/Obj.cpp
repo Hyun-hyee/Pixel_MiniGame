@@ -48,7 +48,7 @@ void CObj::CollideRender(HDC hDC)
 	HBRUSH myBrush = (HBRUSH)GetStockObject(NULL_BRUSH);
 	HBRUSH oldBrush = (HBRUSH)SelectObject(hDC, myBrush);
 
-	HPEN myPen = CreatePen(PS_SOLID, 0, RGB(255, 0, 255));
+	HPEN myPen = CreatePen(PS_SOLID, 2, RGB(255, 255, 255));
 	HPEN oldPen = (HPEN)SelectObject(hDC, myPen);
 
 	MoveToEx(hDC, (int)m_vPoint[0].x - ((int)cameraPos.x - ML - MCX / 2), (int)m_vPoint[0].y - ((int)cameraPos.y - MT - MCY / 2), nullptr);

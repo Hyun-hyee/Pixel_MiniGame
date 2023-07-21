@@ -76,6 +76,12 @@
     <Filter Include="00.SceneManager\01.FirstStage">
       <UniqueIdentifier>{f8fac6b2-f514-4791-8b5f-dfbd97179bba}</UniqueIdentifier>
     </Filter>
+    <Filter Include="00.SceneManager\02.PuzzleBobble">
+      <UniqueIdentifier>{f2647751-1ace-4983-b377-edcfe69b0a38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\00.Character\BubbleGun">
+      <UniqueIdentifier>{51cf9e85-c9f7-4c56-a171-3f06ac2b5836}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -109,9 +115,6 @@
       <Filter>00.SceneManager</Filter>
     </ClInclude>
     <ClInclude Include="CORE\SceneManager.h">
-      <Filter>00.SceneManager</Filter>
-    </ClInclude>
-    <ClInclude Include="CORE\FirstStage.h">
       <Filter>00.SceneManager</Filter>
     </ClInclude>
     <ClInclude Include="CORE\SoundMgr.h">
@@ -162,6 +165,15 @@
     <ClInclude Include="stdafx.h">
       <Filter>100.Header</Filter>
     </ClInclude>
+    <ClInclude Include="CORE\FirstStage.h">
+      <Filter>00.SceneManager\01.FirstStage</Filter>
+    </ClInclude>
+    <ClInclude Include="HJ\PuzzleBobble.h">
+      <Filter>00.SceneManager\02.PuzzleBobble</Filter>
+    </ClInclude>
+    <ClInclude Include="HJ\BubbleGun.h">
+      <Filter>01. Obj\00.Character\BubbleGun</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="230608.cpp">
@@ -189,9 +201,6 @@
       <Filter>00.SceneManager</Filter>
     </ClCompile>
     <ClCompile Include="CORE\Scene.cpp">
-      <Filter>00.SceneManager</Filter>
-    </ClCompile>
-    <ClCompile Include="CORE\FirstStage.cpp">
       <Filter>00.SceneManager</Filter>
     </ClCompile>
     <ClCompile Include="CORE\SoundMgr.cpp">
@@ -223,6 +232,15 @@
     </ClCompile>
     <ClCompile Include="CORE\Obj.cpp">
       <Filter>01. Obj</Filter>
+    </ClCompile>
+    <ClCompile Include="CORE\FirstStage.cpp">
+      <Filter>00.SceneManager\01.FirstStage</Filter>
+    </ClCompile>
+    <ClCompile Include="HJ\PuzzleBobble.cpp">
+      <Filter>00.SceneManager\02.PuzzleBobble</Filter>
+    </ClCompile>
+    <ClCompile Include="HJ\BubbleGun.cpp">
+      <Filter>01. Obj\00.Character\BubbleGun</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

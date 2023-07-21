@@ -19,5 +19,6 @@ public:
 	virtual	int		InCollision(CObj* _target, D3DXVECTOR3 _dir, float _Angle)		override;
 	virtual	int		OutCollision(CObj* _target)		override;
 	virtual	int		OnCollision(CObj* _target, D3DXVECTOR3 _dir, float _Angle)					override;
+
 };
 

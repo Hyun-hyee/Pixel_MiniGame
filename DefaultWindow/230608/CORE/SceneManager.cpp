@@ -10,6 +10,7 @@
 #include "SoundMgr.h"
 #include "Wall.h"
 #include "FirstStage.h"
+#include "PuzzleBobble.h"
 
 CSceneManager* CSceneManager::m_pInstance = nullptr;
 
@@ -54,7 +55,7 @@ void CSceneManager::Initialize()
 	CSoundMgr::Get_Instance()->Initialize();
 	
 	//Scene »ý¼º
-	SceneList.push_back(new CFirstStage);
+	SceneList.push_back(new CPuzzleBobble);
 	SceneList.back()->Initialize();
 	SceneList.back()->Set_SceneOn(true);
 	m_PlayScene = SceneList.back();
