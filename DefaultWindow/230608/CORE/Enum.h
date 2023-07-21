@@ -1,0 +1,64 @@
+#pragma once
+
+typedef enum Direction
+{
+	DIR_NONE,
+	LEFT = 1,
+	RIGHT = 2,
+	TOP = 3,
+	BOTTOM = 4,
+
+	DIR_END
+}DIR;
+
+//Obj 타입
+typedef enum OBJID
+{
+	OBJ_NONE,
+	PLAYER,
+	WALL,
+	OBJ_TYPE_END
+}OBJ_TYPE;
+
+//Obj 상태
+typedef enum OBJSTATE
+{
+	DEAD,
+	OBJ_STATE_NONE,
+	OBJ_STATE_END
+
+}OBJ_STATE;
+
+typedef enum LASERTYPE
+{
+	LASER_SHORT,
+	LASER_LONG,
+	LASER_FOLLOW,
+
+	LASER_TYPE_END
+}LASER_TYPE;
+
+
+
+//충돌체 타입
+typedef enum COLLIDERTYPE
+{
+	RECTANGLE,
+	ELLIPSE,
+
+	COLLIDER_TYPE_END
+}COLLIDER_TYPE;
+
+
+
+enum CHANNELID 
+{
+	SOUND_PLAYER,
+	SOUND_PLAYER2,
+	SOUND_PLAYER3,
+	SOUND_PLAYER4,
+	SOUND_PLAYER5,
+	SOUND_BGM,
+	MAXCHANNEL 
+};
+
