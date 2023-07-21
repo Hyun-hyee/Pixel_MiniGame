@@ -87,10 +87,10 @@ void CObj::CollideRender(HDC hDC, RECT _collide)
 	HPEN myPen = CreatePen(PS_SOLID, 0, RGB(255, 255, 0));
 	HPEN oldPen = (HPEN)SelectObject(hDC, myPen);
 
-	Rectangle(hDC, _collide.left - ((float)cameraPos.x - WINCX / 2),
-		_collide.top - ((float)cameraPos.y    - WINCY / 2),
-		_collide.right - ((float)cameraPos.x  - WINCX / 2),
-		_collide.bottom - ((float)cameraPos.y - WINCY / 2));
+	Rectangle(hDC, _collide.left - ((float)cameraPos.x - (ML + MCX / 2) ),
+		_collide.top - ((float)cameraPos.y    - ( MT + MCY / 2) ),
+		_collide.right - ((float)cameraPos.x  - (ML + MCX / 2) ),
+		_collide.bottom - ((float)cameraPos.y - ( MT + MCY / 2)));
 
 	SelectObject(hDC, oldBrush);
 	DeleteObject(myBrush);
@@ -127,8 +127,8 @@ void CObj::BasicRender(HDC hDC)
 	//이미지 출력 (빠름, 알파블랜딩 X)
 	g.DrawImage(pImage,
 		Gdiplus::Rect(
-			((int)(m_tInfo.fX - m_tInfo.fCX * 0.5f) - ((int)cameraPos.x - WINCX / 2)),
-			((int)(m_tInfo.fY - m_tInfo.fCY * 0.5f) - ((int)cameraPos.y - WINCY / 2)),
+			((int)(m_tInfo.fX - m_tInfo.fCX * 0.5f) - ((int)cameraPos.x - (ML + MCX / 2) )),
+			((int)(m_tInfo.fY - m_tInfo.fCY * 0.5f) - ((int)cameraPos.y - ( MT + MCY / 2) )),
 			m_tInfo.fCX,  //복사 사이즈
 			m_tInfo.fCY //복사 사이즈
 		),
@@ -164,8 +164,8 @@ void CObj::FrameRender(HDC hDC)
 	{
 		g.DrawImage(pImage,
 			Gdiplus::Rect(
-				((int)(m_tInfo.fX - m_tInfo.fCX * 0.5f) - ((int)cameraPos.x - WINCX / 2)),
-				((int)(m_tInfo.fY - m_tInfo.fCY * 0.5f) - ((int)cameraPos.y - WINCY / 2)),
+				((int)(m_tInfo.fX - m_tInfo.fCX * 0.5f) - ((int)cameraPos.x - (ML + MCX / 2) )),
+				((int)(m_tInfo.fY - m_tInfo.fCY * 0.5f) - ((int)cameraPos.y - ( MT + MCY / 2) )),
 				(int)m_FrameMap[m_State].iFrameSizeX , //복사 사이즈
 				(int)m_FrameMap[m_State].iFrameSizeY  //복사 사이즈
 			),
@@ -179,8 +179,8 @@ void CObj::FrameRender(HDC hDC)
 	{
 		g.DrawImage(pImage,
 			Gdiplus::Rect(
-				((int)(m_tInfo.fX - m_tInfo.fCX * 0.5f) - ((int)cameraPos.x - WINCX / 2)),
-				((int)(m_tInfo.fY - m_tInfo.fCY * 0.5f) - ((int)cameraPos.y - WINCY / 2)),
+				((int)(m_tInfo.fX - m_tInfo.fCX * 0.5f) - ((int)cameraPos.x - (ML + MCX / 2) )),
+				((int)(m_tInfo.fY - m_tInfo.fCY * 0.5f) - ((int)cameraPos.y - ( MT + MCY / 2))),
 				(int)m_FrameMap[m_State].iFrameSizeX, //복사 사이즈
 				(int)m_FrameMap[m_State].iFrameSizeY //복사 사이즈
 			),
@@ -216,8 +216,8 @@ void CObj::FrameRender_Size(HDC hDC, float _RatioX, float _RatioY)
 	{
 		g.DrawImage(pImage,
 			Gdiplus::Rect(
-				((int)(m_tInfo.fX - m_tInfo.fCX * 0.5f) - ((int)cameraPos.x - WINCX / 2)),
-				((int)(m_tInfo.fY - m_tInfo.fCY * 0.5f) - ((int)cameraPos.y - WINCY / 2)),
+				((int)(m_tInfo.fX - m_tInfo.fCX * 0.5f) - ((int)cameraPos.x - (ML + MCX / 2))),
+				((int)(m_tInfo.fY - m_tInfo.fCY * 0.5f) - ((int)cameraPos.y - ( MT + MCY / 2) )),
 				(int)m_FrameMap[m_State].iFrameSizeX * _RatioX, //복사 사이즈
 				(int)m_FrameMap[m_State].iFrameSizeY * _RatioY //복사 사이즈
 			),
@@ -231,8 +231,8 @@ void CObj::FrameRender_Size(HDC hDC, float _RatioX, float _RatioY)
 	{
 		g.DrawImage(pImage,
 			Gdiplus::Rect(
-				((int)(m_tInfo.fX - m_tInfo.fCX * 0.5f) - ((int)cameraPos.x - WINCX / 2)),
-				((int)(m_tInfo.fY - m_tInfo.fCY * 0.5f) - ((int)cameraPos.y - WINCY / 2)),
+				((int)(m_tInfo.fX - m_tInfo.fCX * 0.5f) - ((int)cameraPos.x - (ML + MCX / 2) )),
+				((int)(m_tInfo.fY - m_tInfo.fCY * 0.5f) - ((int)cameraPos.y - ( MT + MCY / 2) )),
 				(int)m_FrameMap[m_State].iFrameSizeX * _RatioX, //복사 사이즈
 				(int)m_FrameMap[m_State].iFrameSizeY * _RatioY  //복사 사이즈
 			),
@@ -261,18 +261,18 @@ void CObj::RotateRender(HDC hDC, float _angle)
 	
 	Gdiplus::Graphics g (hDC);
 
-	g.TranslateTransform((int)m_tInfo.fX - ((int)cameraPos.x - WINCX / 2) 
-		, (int)m_tInfo.fY - ((int)cameraPos.y - WINCY / 2));
+	g.TranslateTransform((int)m_tInfo.fX - ((int)cameraPos.x - (ML + MCX / 2) ) 
+		, (int)m_tInfo.fY - ((int)cameraPos.y - ( MT + MCY / 2)));
 	//rotate
 	g.RotateTransform(_angle);
-	g.TranslateTransform(-(int)m_tInfo.fX - ((int)cameraPos.x - WINCX / 2)
-		, -(int)m_tInfo.fY - ((int)cameraPos.y - WINCY / 2));
+	g.TranslateTransform(-(int)m_tInfo.fX - ((int)cameraPos.x - (ML + MCX / 2))
+		, -(int)m_tInfo.fY - ((int)cameraPos.y - ( MT + MCY / 2) ));
 
 	//이미지 출력 (빠름, 알파블랜딩 X)
   	g.DrawImage(pImage,
 		Gdiplus::Rect(
-			((int)(m_tInfo.fX - m_tInfo.fCX * 0.5f) + ((int)cameraPos.x - WINCX / 2)),
-			((int)(m_tInfo.fY - m_tInfo.fCY * 0.5f) + ((int)cameraPos.y - WINCY / 2)),
+			((int)(m_tInfo.fX - m_tInfo.fCX * 0.5f) + ((int)cameraPos.x - (ML + MCX / 2) )),
+			((int)(m_tInfo.fY - m_tInfo.fCY * 0.5f) + ((int)cameraPos.y - ( MT + MCY / 2) )),
 			pImage->GetWidth(),  //복사 사이즈
 			pImage->GetHeight()//복사 사이즈
 		),
@@ -301,12 +301,12 @@ void CObj::RotateFrameRender_Size(HDC hDC, float _angle, float _resizeX, float _
 	
 	Gdiplus::Graphics g(hDC);
 
-	g.TranslateTransform((int)m_tInfo.fX - ((int)cameraPos.x - WINCX / 2)
-		, (int)m_tInfo.fY - ((int)cameraPos.y - WINCY / 2));
+	g.TranslateTransform((int)m_tInfo.fX - ((int)cameraPos.x - (ML + MCX / 2))
+		, (int)m_tInfo.fY - ((int)cameraPos.y - ( MT + MCY / 2) ));
 	//rotate
 	g.RotateTransform(_angle);
-	g.TranslateTransform(-(int)m_tInfo.fX - ((int)cameraPos.x - WINCX / 2)
-		, -(int)m_tInfo.fY - ((int)cameraPos.y - WINCY / 2));
+	g.TranslateTransform(-(int)m_tInfo.fX - ((int)cameraPos.x - (ML + MCX/ 2))
+		, -(int)m_tInfo.fY - ((int)cameraPos.y - ( MT + MCY / 2)));
 
 
 	Gdiplus::ImageAttributes attr;
@@ -317,8 +317,8 @@ void CObj::RotateFrameRender_Size(HDC hDC, float _angle, float _resizeX, float _
 	{
 		g.DrawImage(pImage,
 			Gdiplus::Rect(
-				((int)m_tInfo.fX + ((int)cameraPos.x - WINCX / 2)),
-				((int)m_tInfo.fY + ((int)cameraPos.y - WINCY / 2)),
+				((int)m_tInfo.fX + ((int)cameraPos.x - (ML + MCX / 2) )),
+				((int)m_tInfo.fY + ((int)cameraPos.y - ( MT + MCY / 2) )),
 				(int)m_FrameMap[m_State].iFrameSizeX * SMALL * _resizeX, //복사 사이즈
 				(int)m_FrameMap[m_State].iFrameSizeY * SMALL * _resizeY),//복사 사이즈
 			
@@ -332,8 +332,8 @@ void CObj::RotateFrameRender_Size(HDC hDC, float _angle, float _resizeX, float _
 	{
 		g.DrawImage(pImage,
 			Gdiplus::Rect(
-				((int)m_tInfo.fX + ((int)cameraPos.x - WINCX / 2)),
-				((int)m_tInfo.fY + ((int)cameraPos.y - WINCY / 2)),
+				((int)m_tInfo.fX + ((int)cameraPos.x - (ML + MCX / 2) )),
+				((int)m_tInfo.fY + ((int)cameraPos.y - ( MT + MCY / 2) )),
 				(int)m_FrameMap[m_State].iFrameSizeX * SMALL * _resizeX, //복사 사이즈
 				(int)m_FrameMap[m_State].iFrameSizeY * SMALL * _resizeY),//복사 사이즈
 			m_FrameMap[m_State].iMotion * (int)m_FrameMap[m_State].iFrameSizeX,
@@ -364,12 +364,12 @@ void CObj::RotateFrameRender (HDC hDC, float _angle, float _resizeX, float _resi
 	
 	Gdiplus::Graphics g(hDC);
 
-	g.TranslateTransform((int)m_tInfo.fX - ((int)cameraPos.x - WINCX / 2)
-		, (int)m_tInfo.fY - ((int)cameraPos.y - WINCY / 2));
+	g.TranslateTransform((int)m_tInfo.fX - ((int)cameraPos.x - (ML + MCX ))
+		, (int)m_tInfo.fY - ((int)cameraPos.y - ( MT + MCY / 2) ));
 	//rotate
 	g.RotateTransform(_angle);
-	g.TranslateTransform(-(int)m_tInfo.fX - ((int)cameraPos.x - WINCX / 2)
-		, -(int)m_tInfo.fY - ((int)cameraPos.y - WINCY / 2));
+	g.TranslateTransform(-(int)m_tInfo.fX - ((int)cameraPos.x - (ML + MCX))
+		, -(int)m_tInfo.fY - ((int)cameraPos.y - ( MT + MCY / 2) ));
 
 
 	Gdiplus::ImageAttributes attr;
@@ -380,8 +380,8 @@ void CObj::RotateFrameRender (HDC hDC, float _angle, float _resizeX, float _resi
 	{
 		g.DrawImage(pImage,
 			Gdiplus::Rect(
-				((int)m_tInfo.fX + ((int)cameraPos.x - WINCX / 2)),
-				((int)m_tInfo.fY + ((int)cameraPos.y - WINCY / 2)),
+				((int)m_tInfo.fX + ((int)cameraPos.x - (ML + MCX / 2))),
+				((int)m_tInfo.fY + ((int)cameraPos.y - ( MT + MCY / 2) )),
 				(int)m_FrameMap[m_State].iFrameSizeX * SMALL * _resizeX, //복사 사이즈
 				(int)m_FrameMap[m_State].iFrameSizeY * SMALL * _resizeY),//복사 사이즈
 
@@ -395,8 +395,8 @@ void CObj::RotateFrameRender (HDC hDC, float _angle, float _resizeX, float _resi
 	{
 		g.DrawImage(pImage,
 			Gdiplus::Rect(
-				((int)m_tInfo.fX + ((int)cameraPos.x - WINCX / 2)),
-				((int)m_tInfo.fY + ((int)cameraPos.y - WINCY / 2)),
+				((int)m_tInfo.fX + ((int)cameraPos.x - (ML + MCX / 2) )),
+				((int)m_tInfo.fY + ((int)cameraPos.y - ( MT + MCY / 2) )),
 				(int)m_FrameMap[m_State].iFrameSizeX * SMALL * _resizeX, //복사 사이즈
 				(int)m_FrameMap[m_State].iFrameSizeY * SMALL * _resizeY),//복사 사이즈
 			m_FrameMap[m_State].iFrameEnd * (int)m_FrameMap[m_State].iFrameSizeX,

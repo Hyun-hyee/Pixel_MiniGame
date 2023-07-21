@@ -1,2 +1,66 @@
-﻿  CameraComponent.cpp
-  230608.vcxproj -> C:\Users\Hyejin\Documents\GitHub\ThirdTeamProject\DefaultWindow\Debug\230608.exe
+﻿  stdafx.cpp
+  230608.cpp
+  BitMap.cpp
+  BmpMgr.cpp
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\BmpMgr.cpp(222,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\BmpMgr.cpp(225,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\BmpMgr.cpp(314,10): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  CameraComponent.cpp
+  Character.cpp
+  CollisionMgr.cpp
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\CollisionMgr.cpp(183,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\CollisionMgr.cpp(197,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  Component.cpp
+  FirstStage.cpp
+  KeyMgr.cpp
+  Line.cpp
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Line.cpp(29,66): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Line.cpp(28,40): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Line.cpp(31,64): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Line.cpp(30,38): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  LineMgr.cpp
+  Obj.cpp
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(56,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(93,19): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(92,18): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(91,16): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(90,31): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(133,11): warning C4244: '인수': 'float'에서 'INT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(132,11): warning C4244: '인수': 'float'에서 'INT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(222,42): warning C4244: '인수': 'float'에서 'INT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(221,42): warning C4244: '인수': 'float'에서 'INT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(237,42): warning C4244: '인수': 'float'에서 'INT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(236,42): warning C4244: '인수': 'float'에서 'INT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(265,21): warning C4244: '인수': 'int'에서 'Gdiplus::REAL'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(264,39): warning C4244: '인수': 'int'에서 'Gdiplus::REAL'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(269,22): warning C4244: '인수': 'int'에서 'Gdiplus::REAL'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(268,40): warning C4244: '인수': 'int'에서 'Gdiplus::REAL'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(305,21): warning C4244: '인수': 'int'에서 'Gdiplus::REAL'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(304,39): warning C4244: '인수': 'int'에서 'Gdiplus::REAL'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(309,22): warning C4244: '인수': 'int'에서 'Gdiplus::REAL'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(308,40): warning C4244: '인수': 'int'에서 'Gdiplus::REAL'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(323,50): warning C4244: '인수': 'float'에서 'INT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(322,50): warning C4244: '인수': 'float'에서 'INT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(338,50): warning C4244: '인수': 'float'에서 'INT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(337,50): warning C4244: '인수': 'float'에서 'INT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(368,21): warning C4244: '인수': 'int'에서 'Gdiplus::REAL'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(367,39): warning C4244: '인수': 'int'에서 'Gdiplus::REAL'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(372,22): warning C4244: '인수': 'int'에서 'Gdiplus::REAL'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(371,40): warning C4244: '인수': 'int'에서 'Gdiplus::REAL'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(386,50): warning C4244: '인수': 'float'에서 'INT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(385,50): warning C4244: '인수': 'float'에서 'INT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(401,50): warning C4244: '인수': 'float'에서 'INT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(400,50): warning C4244: '인수': 'float'에서 'INT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Obj.cpp(424,46): warning C4244: '=': 'ULONGLONG'에서 'DWORD'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ObjMgr.cpp
+  Player.cpp
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Player.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Player.cpp(224,46): warning C4244: '=': 'ULONGLONG'에서 'DWORD'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\230608\CORE\Player.cpp(231,2): warning C4060: switch문에 'case' 또는 'default' 레이블이 없습니다.
+  Scene.cpp
+  SceneManager.cpp
+  SoundMgr.cpp
+  UIMgr.cpp
+  Wall.cpp
+  코드를 생성하고 있습니다...
+  230608.vcxproj -> C:\Users\Hyejin\Documents\GitHub\PixelGame\DefaultWindow\Debug\230608.exe
