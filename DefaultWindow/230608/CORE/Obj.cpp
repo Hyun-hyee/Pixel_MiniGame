@@ -4,9 +4,9 @@
 #include "SceneManager.h"
 #include "BmpMgr.h"
 
-CObj::CObj() : 
+CObj::CObj() :
 	m_fSpeed(0.f), m_State(OBJ_STATE_NONE), m_Type(OBJ_NONE),
-	m_fAccel(0.f),m_Owner(nullptr),
+	m_fAccel(0.f), m_Owner(nullptr),
 	m_PrevState(OBJ_STATE_END),
 	m_OneImgKey(L""), m_FrameReverse(false)
 {
@@ -87,10 +87,10 @@ void CObj::CollideRender(HDC hDC, RECT _collide)
 	HPEN myPen = CreatePen(PS_SOLID, 0, RGB(255, 255, 0));
 	HPEN oldPen = (HPEN)SelectObject(hDC, myPen);
 
-	Rectangle(hDC, _collide.left - ((float)cameraPos.x - (ML + MCX / 2) ),
-		_collide.top - ((float)cameraPos.y    - ( MT + MCY / 2) ),
-		_collide.right - ((float)cameraPos.x  - (ML + MCX / 2) ),
-		_collide.bottom - ((float)cameraPos.y - ( MT + MCY / 2)));
+	Rectangle(hDC, _collide.left - ((float)cameraPos.x - (ML + MCX / 2)),
+		_collide.top - ((float)cameraPos.y - (MT + MCY / 2)),
+		_collide.right - ((float)cameraPos.x - (ML + MCX / 2)),
+		_collide.bottom - ((float)cameraPos.y - (MT + MCY / 2)));
 
 	SelectObject(hDC, oldBrush);
 	DeleteObject(myBrush);
@@ -109,26 +109,26 @@ void CObj::RatioFixByImage(const TCHAR* _tcAnimKey)
 }
 
 void CObj::BasicRender(HDC hDC)
-{	
+{
 	//카메라 위치(디폴트 -> 플레이어)
 	fPOINT cameraPos = CSceneManager::Get_Instance()->GetCameraPos();
 
 	CBitMap* pBitMap = CBmpMgr::Get_Instance()->Find_CBitMap(m_OneImgKey);
-	
-	Gdiplus::Bitmap* pImage;
-	
-		//사용할 이미지 Key 가져오기
-		pImage = pBitMap->Get_Image();
 
-	
+	Gdiplus::Bitmap* pImage;
+
+	//사용할 이미지 Key 가져오기
+	pImage = pBitMap->Get_Image();
+
+
 
 	Gdiplus::Graphics g(hDC);
 
 	//이미지 출력 (빠름, 알파블랜딩 X)
 	g.DrawImage(pImage,
 		Gdiplus::Rect(
-			((int)(m_tInfo.fX - m_tInfo.fCX * 0.5f) - ((int)cameraPos.x - (ML + MCX / 2) )),
-			((int)(m_tInfo.fY - m_tInfo.fCY * 0.5f) - ((int)cameraPos.y - ( MT + MCY / 2) )),
+			((int)(m_tInfo.fX - m_tInfo.fCX * 0.5f) - ((int)cameraPos.x - (ML + MCX / 2))),
+			((int)(m_tInfo.fY - m_tInfo.fCY * 0.5f) - ((int)cameraPos.y - (MT + MCY / 2))),
 			m_tInfo.fCX,  //복사 사이즈
 			m_tInfo.fCY //복사 사이즈
 		),
@@ -138,7 +138,7 @@ void CObj::BasicRender(HDC hDC)
 		pImage->GetHeight(), //이미지 원본 사이즈
 		Gdiplus::UnitPixel);
 
-	
+
 }
 
 void CObj::FrameRender(HDC hDC)
@@ -147,26 +147,26 @@ void CObj::FrameRender(HDC hDC)
 	// 사용할 CBitmap
 	CBitMap* pBitMap = CBmpMgr::Get_Instance()->Find_CBitMap(m_FrameMap[m_State].AnimKey);
 	Gdiplus::Bitmap* pImage;
-	
-		//사용할 이미지 Key 가져오기
-		pImage = pBitMap->Get_Image();
-	
+
+	//사용할 이미지 Key 가져오기
+	pImage = pBitMap->Get_Image();
+
 	//카메라 위치(디폴트 -> 플레이어)
 	fPOINT cameraPos = CSceneManager::Get_Instance()->GetCameraPos();
 
 	// 캔버스
 	Gdiplus::Graphics g(hDC);
-	
+
 
 	Gdiplus::ImageAttributes attr;
-	
-	if (m_fFrontAngle == 0 || (m_FrameReverse == true && m_fFrontAngle == PI ))
+
+	if (m_fFrontAngle == 0 || (m_FrameReverse == true && m_fFrontAngle == PI))
 	{
 		g.DrawImage(pImage,
 			Gdiplus::Rect(
-				((int)(m_tInfo.fX - m_tInfo.fCX * 0.5f) - ((int)cameraPos.x - (ML + MCX / 2) )),
-				((int)(m_tInfo.fY - m_tInfo.fCY * 0.5f) - ((int)cameraPos.y - ( MT + MCY / 2) )),
-				(int)m_FrameMap[m_State].iFrameSizeX , //복사 사이즈
+				((int)(m_tInfo.fX - m_tInfo.fCX * 0.5f) - ((int)cameraPos.x - (ML + MCX / 2))),
+				((int)(m_tInfo.fY - m_tInfo.fCY * 0.5f) - ((int)cameraPos.y - (MT + MCY / 2))),
+				(int)m_FrameMap[m_State].iFrameSizeX, //복사 사이즈
 				(int)m_FrameMap[m_State].iFrameSizeY  //복사 사이즈
 			),
 			m_FrameMap[m_State].iFrameStart * (int)m_FrameMap[m_State].iFrameSizeX,
@@ -179,8 +179,8 @@ void CObj::FrameRender(HDC hDC)
 	{
 		g.DrawImage(pImage,
 			Gdiplus::Rect(
-				((int)(m_tInfo.fX - m_tInfo.fCX * 0.5f) - ((int)cameraPos.x - (ML + MCX / 2) )),
-				((int)(m_tInfo.fY - m_tInfo.fCY * 0.5f) - ((int)cameraPos.y - ( MT + MCY / 2))),
+				((int)(m_tInfo.fX - m_tInfo.fCX * 0.5f) - ((int)cameraPos.x - (ML + MCX / 2))),
+				((int)(m_tInfo.fY - m_tInfo.fCY * 0.5f) - ((int)cameraPos.y - (MT + MCY / 2))),
 				(int)m_FrameMap[m_State].iFrameSizeX, //복사 사이즈
 				(int)m_FrameMap[m_State].iFrameSizeY //복사 사이즈
 			),
@@ -190,8 +190,8 @@ void CObj::FrameRender(HDC hDC)
 			(int)m_FrameMap[m_State].iFrameSizeY, //이미지 원본 사이즈
 			Gdiplus::UnitPixel, &attr);
 	}
-	
-	
+
+
 }
 
 void CObj::FrameRender_Size(HDC hDC, float _RatioX, float _RatioY)
@@ -201,7 +201,7 @@ void CObj::FrameRender_Size(HDC hDC, float _RatioX, float _RatioY)
 	Gdiplus::Bitmap* pImage;
 	//사용할 이미지 Key 가져오기
 	pImage = pBitMap->Get_Image();
-	
+
 	//카메라 위치(디폴트 -> 플레이어)
 	fPOINT cameraPos = CSceneManager::Get_Instance()->GetCameraPos();
 
@@ -212,12 +212,12 @@ void CObj::FrameRender_Size(HDC hDC, float _RatioX, float _RatioY)
 	attr.SetColorKey(Gdiplus::Color(255, 0, 255), Gdiplus::Color(255, 0, 255),
 		Gdiplus::ColorAdjustTypeBitmap);
 
-	if (m_fFrontAngle == 0 )
+	if (m_fFrontAngle == 0)
 	{
 		g.DrawImage(pImage,
 			Gdiplus::Rect(
 				((int)(m_tInfo.fX - m_tInfo.fCX * 0.5f) - ((int)cameraPos.x - (ML + MCX / 2))),
-				((int)(m_tInfo.fY - m_tInfo.fCY * 0.5f) - ((int)cameraPos.y - ( MT + MCY / 2) )),
+				((int)(m_tInfo.fY - m_tInfo.fCY * 0.5f) - ((int)cameraPos.y - (MT + MCY / 2))),
 				(int)m_FrameMap[m_State].iFrameSizeX * _RatioX, //복사 사이즈
 				(int)m_FrameMap[m_State].iFrameSizeY * _RatioY //복사 사이즈
 			),
@@ -231,8 +231,8 @@ void CObj::FrameRender_Size(HDC hDC, float _RatioX, float _RatioY)
 	{
 		g.DrawImage(pImage,
 			Gdiplus::Rect(
-				((int)(m_tInfo.fX - m_tInfo.fCX * 0.5f) - ((int)cameraPos.x - (ML + MCX / 2) )),
-				((int)(m_tInfo.fY - m_tInfo.fCY * 0.5f) - ((int)cameraPos.y - ( MT + MCY / 2) )),
+				((int)(m_tInfo.fX - m_tInfo.fCX * 0.5f) - ((int)cameraPos.x - (ML + MCX / 2))),
+				((int)(m_tInfo.fY - m_tInfo.fCY * 0.5f) - ((int)cameraPos.y - (MT + MCY / 2))),
 				(int)m_FrameMap[m_State].iFrameSizeX * _RatioX, //복사 사이즈
 				(int)m_FrameMap[m_State].iFrameSizeY * _RatioY  //복사 사이즈
 			),
@@ -254,25 +254,25 @@ void CObj::RotateRender(HDC hDC, float _angle)
 	//사용할 이미지 Key 가져오기
 	CBitMap* pBitMap = CBmpMgr::Get_Instance()->Find_CBitMap(m_OneImgKey);
 	Gdiplus::Bitmap* pImage;
-	
+
 	//사용할 이미지 Key 가져오기
 	pImage = pBitMap->Get_Image();
-	
-	
-	Gdiplus::Graphics g (hDC);
 
-	g.TranslateTransform((int)m_tInfo.fX - ((int)cameraPos.x - (ML + MCX / 2) ) 
-		, (int)m_tInfo.fY - ((int)cameraPos.y - ( MT + MCY / 2)));
+
+	Gdiplus::Graphics g(hDC);
+
+	g.TranslateTransform((int)m_tInfo.fX - ((int)cameraPos.x - (ML + MCX / 2))
+		, (int)m_tInfo.fY - ((int)cameraPos.y - (MT + MCY / 2)));
 	//rotate
 	g.RotateTransform(_angle);
 	g.TranslateTransform(-(int)m_tInfo.fX - ((int)cameraPos.x - (ML + MCX / 2))
-		, -(int)m_tInfo.fY - ((int)cameraPos.y - ( MT + MCY / 2) ));
+		, -(int)m_tInfo.fY - ((int)cameraPos.y - (MT + MCY / 2)));
 
 	//이미지 출력 (빠름, 알파블랜딩 X)
-  	g.DrawImage(pImage,
+	g.DrawImage(pImage,
 		Gdiplus::Rect(
-			((int)(m_tInfo.fX - m_tInfo.fCX * 0.5f) + ((int)cameraPos.x - (ML + MCX / 2) )),
-			((int)(m_tInfo.fY - m_tInfo.fCY * 0.5f) + ((int)cameraPos.y - ( MT + MCY / 2) )),
+			((int)(m_tInfo.fX - m_tInfo.fCX * 0.5f) + ((int)cameraPos.x - (ML + MCX / 2))),
+			((int)(m_tInfo.fY - m_tInfo.fCY * 0.5f) + ((int)cameraPos.y - (MT + MCY / 2))),
 			pImage->GetWidth(),  //복사 사이즈
 			pImage->GetHeight()//복사 사이즈
 		),
@@ -295,81 +295,18 @@ void CObj::RotateFrameRender_Size(HDC hDC, float _angle, float _resizeX, float _
 	//사용할 이미지 Key 가져오기
 	CBitMap* pBitMap = CBmpMgr::Get_Instance()->Find_CBitMap(m_FrameMap[m_State].AnimKey);
 	Gdiplus::Bitmap* pImage;
-	
+
 	//사용할 이미지 Key 가져오기
 	pImage = pBitMap->Get_Image();
-	
+
 	Gdiplus::Graphics g(hDC);
 
 	g.TranslateTransform((int)m_tInfo.fX - ((int)cameraPos.x - (ML + MCX / 2))
-		, (int)m_tInfo.fY - ((int)cameraPos.y - ( MT + MCY / 2) ));
+		, (int)m_tInfo.fY - ((int)cameraPos.y - (MT + MCY / 2)));
 	//rotate
 	g.RotateTransform(_angle);
-	g.TranslateTransform(-(int)m_tInfo.fX - ((int)cameraPos.x - (ML + MCX/ 2))
-		, -(int)m_tInfo.fY - ((int)cameraPos.y - ( MT + MCY / 2)));
-
-
-	Gdiplus::ImageAttributes attr;
-	attr.SetColorKey(Gdiplus::Color(255, 0, 255), Gdiplus::Color(255, 0, 255),
-		Gdiplus::ColorAdjustTypeBitmap);
-
-	if (!m_FrameReverse)
-	{
-		g.DrawImage(pImage,
-			Gdiplus::Rect(
-				((int)m_tInfo.fX + ((int)cameraPos.x - (ML + MCX / 2) )),
-				((int)m_tInfo.fY + ((int)cameraPos.y - ( MT + MCY / 2) )),
-				(int)m_FrameMap[m_State].iFrameSizeX * SMALL * _resizeX, //복사 사이즈
-				(int)m_FrameMap[m_State].iFrameSizeY * SMALL * _resizeY),//복사 사이즈
-			
-			m_FrameMap[m_State].iMotion * (int)m_FrameMap[m_State].iFrameSizeX,
-			m_FrameMap[m_State].iFrameStart * (int)m_FrameMap[m_State].iFrameSizeY,
-			(int)m_FrameMap[m_State].iFrameSizeX,
-			(int)m_FrameMap[m_State].iFrameSizeY, //이미지 원본 사이즈
-			Gdiplus::UnitPixel, &attr);
-	}
-	else
-	{
-		g.DrawImage(pImage,
-			Gdiplus::Rect(
-				((int)m_tInfo.fX + ((int)cameraPos.x - (ML + MCX / 2) )),
-				((int)m_tInfo.fY + ((int)cameraPos.y - ( MT + MCY / 2) )),
-				(int)m_FrameMap[m_State].iFrameSizeX * SMALL * _resizeX, //복사 사이즈
-				(int)m_FrameMap[m_State].iFrameSizeY * SMALL * _resizeY),//복사 사이즈
-			m_FrameMap[m_State].iMotion * (int)m_FrameMap[m_State].iFrameSizeX,
-			(m_FrameMap[m_State].iFrameEnd - m_FrameMap[m_State].iFrameStart) * (int)m_FrameMap[m_State].iFrameSizeY,
-			(int)m_FrameMap[m_State].iFrameSizeX,
-			(int)m_FrameMap[m_State].iFrameSizeY, //이미지 원본 사이즈
-			Gdiplus::UnitPixel, &attr);
-	}
-	
-
-	g.ResetTransform();
-}
-
-
-//중심 기준
-void CObj::RotateFrameRender (HDC hDC, float _angle, float _resizeX, float _resizeY)
-{
-	//카메라 위치(디폴트 -> 플레이어)
-	fPOINT cameraPos = CSceneManager::Get_Instance()->GetCameraPos();
-
-	//사용할 이미지 Key 가져오기
-	CBitMap* pBitMap = CBmpMgr::Get_Instance()->Find_CBitMap(m_FrameMap[m_State].AnimKey);
-	Gdiplus::Bitmap* pImage;
-	
-	//사용할 이미지 Key 가져오기
-	pImage = pBitMap->Get_Image();
-
-	
-	Gdiplus::Graphics g(hDC);
-
-	g.TranslateTransform((int)m_tInfo.fX - ((int)cameraPos.x - (ML + MCX ))
-		, (int)m_tInfo.fY - ((int)cameraPos.y - ( MT + MCY / 2) ));
-	//rotate
-	g.RotateTransform(_angle);
-	g.TranslateTransform(-(int)m_tInfo.fX - ((int)cameraPos.x - (ML + MCX))
-		, -(int)m_tInfo.fY - ((int)cameraPos.y - ( MT + MCY / 2) ));
+	g.TranslateTransform(-(int)m_tInfo.fX - ((int)cameraPos.x - (ML + MCX / 2))
+		, -(int)m_tInfo.fY - ((int)cameraPos.y - (MT + MCY / 2)));
 
 
 	Gdiplus::ImageAttributes attr;
@@ -381,12 +318,12 @@ void CObj::RotateFrameRender (HDC hDC, float _angle, float _resizeX, float _resi
 		g.DrawImage(pImage,
 			Gdiplus::Rect(
 				((int)m_tInfo.fX + ((int)cameraPos.x - (ML + MCX / 2))),
-				((int)m_tInfo.fY + ((int)cameraPos.y - ( MT + MCY / 2) )),
+				((int)m_tInfo.fY + ((int)cameraPos.y - (MT + MCY / 2))),
 				(int)m_FrameMap[m_State].iFrameSizeX * SMALL * _resizeX, //복사 사이즈
 				(int)m_FrameMap[m_State].iFrameSizeY * SMALL * _resizeY),//복사 사이즈
 
-			m_FrameMap[m_State].iFrameStart* (int)m_FrameMap[m_State].iFrameSizeX,
-			m_FrameMap[m_State].iMotion * (int)m_FrameMap[m_State].iFrameSizeY,
+			m_FrameMap[m_State].iMotion * (int)m_FrameMap[m_State].iFrameSizeX,
+			m_FrameMap[m_State].iFrameStart * (int)m_FrameMap[m_State].iFrameSizeY,
 			(int)m_FrameMap[m_State].iFrameSizeX,
 			(int)m_FrameMap[m_State].iFrameSizeY, //이미지 원본 사이즈
 			Gdiplus::UnitPixel, &attr);
@@ -395,16 +332,65 @@ void CObj::RotateFrameRender (HDC hDC, float _angle, float _resizeX, float _resi
 	{
 		g.DrawImage(pImage,
 			Gdiplus::Rect(
-				((int)m_tInfo.fX + ((int)cameraPos.x - (ML + MCX / 2) )),
-				((int)m_tInfo.fY + ((int)cameraPos.y - ( MT + MCY / 2) )),
+				((int)m_tInfo.fX + ((int)cameraPos.x - (ML + MCX / 2))),
+				((int)m_tInfo.fY + ((int)cameraPos.y - (MT + MCY / 2))),
 				(int)m_FrameMap[m_State].iFrameSizeX * SMALL * _resizeX, //복사 사이즈
 				(int)m_FrameMap[m_State].iFrameSizeY * SMALL * _resizeY),//복사 사이즈
-			m_FrameMap[m_State].iFrameEnd * (int)m_FrameMap[m_State].iFrameSizeX,
-			(m_FrameMap[m_State].iMotion - m_FrameMap[m_State].iFrameStart) * (int)m_FrameMap[m_State].iFrameSizeY,
+			m_FrameMap[m_State].iMotion * (int)m_FrameMap[m_State].iFrameSizeX,
+			(m_FrameMap[m_State].iFrameEnd - m_FrameMap[m_State].iFrameStart) * (int)m_FrameMap[m_State].iFrameSizeY,
 			(int)m_FrameMap[m_State].iFrameSizeX,
 			(int)m_FrameMap[m_State].iFrameSizeY, //이미지 원본 사이즈
 			Gdiplus::UnitPixel, &attr);
 	}
+
+
+	g.ResetTransform();
+}
+
+
+//중심 기준
+void CObj::RotateFrameRender(HDC hDC, float _angle)
+{
+	//카메라 위치(디폴트 -> 플레이어)
+	fPOINT cameraPos = CSceneManager::Get_Instance()->GetCameraPos();
+
+	//사용할 이미지 Key 가져오기
+	CBitMap* pBitMap = CBmpMgr::Get_Instance()->Find_CBitMap(m_FrameMap[m_State].AnimKey);
+	Gdiplus::Bitmap* pImage;
+
+	//사용할 이미지 Key 가져오기
+	pImage = pBitMap->Get_Image();
+
+
+	Gdiplus::Graphics g(hDC);
+
+	g.TranslateTransform((int)m_tInfo.fX - ((int)cameraPos.x - (ML + MCX / 2))
+		, (int)m_tInfo.fY - ((int)cameraPos.y - (MT + MCY / 2)));
+	//rotate
+	g.RotateTransform(_angle);
+	g.TranslateTransform(-(int)m_tInfo.fX - ((int)cameraPos.x - (ML + MCX / 2))
+		, -(int)m_tInfo.fY - ((int)cameraPos.y - (MT + MCY / 2)));
+
+
+	Gdiplus::ImageAttributes attr;
+	attr.SetColorKey(Gdiplus::Color(255, 0, 255), Gdiplus::Color(255, 0, 255),
+		Gdiplus::ColorAdjustTypeBitmap);
+
+
+	g.DrawImage(pImage,
+		Gdiplus::Rect(
+			((int)m_tInfo.fX - (int)m_FrameMap[m_State].iFrameSizeX * 0.5f + ((int)cameraPos.x - (ML + MCX / 2))),
+			((int)m_tInfo.fY - (int)m_FrameMap[m_State].iFrameSizeY * 0.5f + ((int)cameraPos.y - (MT + MCY / 2))),
+			(int)m_FrameMap[m_State].iFrameSizeX, //복사 사이즈
+			(int)m_FrameMap[m_State].iFrameSizeY),//복사 사이즈
+
+		m_FrameMap[m_State].iFrameStart * (int)m_FrameMap[m_State].iFrameSizeX,
+		m_FrameMap[m_State].iMotion * (int)m_FrameMap[m_State].iFrameSizeY,
+		(int)m_FrameMap[m_State].iFrameSizeX,
+		(int)m_FrameMap[m_State].iFrameSizeY, //이미지 원본 사이즈
+		Gdiplus::UnitPixel, &attr);
+
+
 
 	g.ResetTransform();
 }
@@ -413,7 +399,7 @@ void CObj::RotateFrameRender (HDC hDC, float _angle, float _resizeX, float _resi
 
 void CObj::Move_Frame()
 {
-	
+
 	if (m_FrameMap[m_State].dwTime + m_FrameMap[m_State].dwSpeed < GetTickCount64())
 	{
 		++m_FrameMap[m_State].iFrameStart;
@@ -423,8 +409,8 @@ void CObj::Move_Frame()
 
 		m_FrameMap[m_State].dwTime = GetTickCount64();
 	}
-	
-	
+
+
 }
 
 
