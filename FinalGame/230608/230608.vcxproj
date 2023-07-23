@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0493DC5E-7C49-4D49-90C1-5C60D27EAE60}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>My230608</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir);$(DXSDK_DIR)Include\;$(ProjectDir)SH\;$(ProjectDir)EJ\;$(ProjectDir)JH\;$(ProjectDir)HJ\;$(ProjectDir)CORE/;$(IncludePath)</IncludePath>
+    <LibraryPath>$(DXSDK_DIR)lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\Hyejin\Documents\GitHub\KatanaZero_WINAPI_Project\DefaultWindow\230608;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>fmodex_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <OmitFramePointers>false</OmitFramePointers>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>fmodex_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Git\KatanaZero_WINAPI_Project\DefaultWindow\230608;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <ProjectReference>
+      <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="230608.h" />
+    <ClInclude Include="CORE\BitMap.h" />
+    <ClInclude Include="CORE\BmpMgr.h" />
+    <ClInclude Include="CORE\CameraComponent.h" />
+    <ClInclude Include="CORE\Character.h" />
+    <ClInclude Include="CORE\CollisionMgr.h" />
+    <ClInclude Include="CORE\Component.h" />
+    <ClInclude Include="CORE\Define.h" />
+    <ClInclude Include="CORE\Enum.h" />
+    <ClInclude Include="CORE\FirstStage.h" />
+    <ClInclude Include="CORE\Functor.h" />
+    <ClInclude Include="CORE\KeyMgr.h" />
+    <ClInclude Include="CORE\Line.h" />
+    <ClInclude Include="CORE\LineMgr.h" />
+    <ClInclude Include="CORE\Obj.h" />
+    <ClInclude Include="CORE\ObjFactory.h" />
+    <ClInclude Include="CORE\ObjMgr.h" />
+    <ClInclude Include="CORE\Player.h" />
+    <ClInclude Include="CORE\Resource.h" />
+    <ClInclude Include="CORE\Scene.h" />
+    <ClInclude Include="CORE\SceneManager.h" />
+    <ClInclude Include="CORE\SoundMgr.h" />
+    <ClInclude Include="CORE\Struct.h" />
+    <ClInclude Include="CORE\UIMgr.h" />
+    <ClInclude Include="CORE\Wall.h" />
+    <ClInclude Include="EJ\Brick.h" />
+    <ClInclude Include="EJ\Circle.h" />
+    <ClInclude Include="EJ\FontMgr.h" />
+    <ClInclude Include="EJ\Wireman.h" />
+    <ClInclude Include="EJ\WiremanStage.h" />
+    <ClInclude Include="HJ\Bubble.h" />
+    <ClInclude Include="HJ\BubbleGun.h" />
+    <ClInclude Include="HJ\PuzzleBobble.h" />
+    <ClInclude Include="JH\Bullet.h" />
+    <ClInclude Include="JH\Enemy.h" />
+    <ClInclude Include="JH\Tank.h" />
+    <ClInclude Include="JH\TankWar.h" />
+    <ClInclude Include="SelectMenu.h" />
+    <ClInclude Include="SH\FinishLine.h" />
+    <ClInclude Include="SH\FinishScene.h" />
+    <ClInclude Include="SH\Skiing.h" />
+    <ClInclude Include="SH\SkiingFlag.h" />
+    <ClInclude Include="SH\SkiingJumpingBoard.h" />
+    <ClInclude Include="SH\SkiingPlayer.h" />
+    <ClInclude Include="SH\SkiingSnowman.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="230608.cpp" />
+    <ClCompile Include="CORE\BitMap.cpp" />
+    <ClCompile Include="CORE\BmpMgr.cpp" />
+    <ClCompile Include="CORE\CameraComponent.cpp" />
+    <ClCompile Include="CORE\Character.cpp" />
+    <ClCompile Include="CORE\CollisionMgr.cpp" />
+    <ClCompile Include="CORE\Component.cpp" />
+    <ClCompile Include="CORE\FirstStage.cpp" />
+    <ClCompile Include="CORE\KeyMgr.cpp" />
+    <ClCompile Include="CORE\Line.cpp" />
+    <ClCompile Include="CORE\LineMgr.cpp" />
+    <ClCompile Include="CORE\Obj.cpp" />
+    <ClCompile Include="CORE\ObjMgr.cpp" />
+    <ClCompile Include="CORE\Player.cpp" />
+    <ClCompile Include="CORE\Scene.cpp" />
+    <ClCompile Include="CORE\SceneManager.cpp" />
+    <ClCompile Include="CORE\SoundMgr.cpp" />
+    <ClCompile Include="CORE\UIMgr.cpp" />
+    <ClCompile Include="CORE\Wall.cpp" />
+    <ClCompile Include="EJ\Brick.cpp" />
+    <ClCompile Include="EJ\Circle.cpp" />
+    <ClCompile Include="EJ\FontMgr.cpp" />
+    <ClCompile Include="EJ\Wireman.cpp" />
+    <ClCompile Include="EJ\WiremanStage.cpp" />
+    <ClCompile Include="HJ\Bubble.cpp" />
+    <ClCompile Include="HJ\BubbleGun.cpp" />
+    <ClCompile Include="HJ\PuzzleBobble.cpp" />
+    <ClCompile Include="JH\Bullet.cpp" />
+    <ClCompile Include="JH\Enemy.cpp" />
+    <ClCompile Include="JH\Tank.cpp" />
+    <ClCompile Include="JH\TankWar.cpp" />
+    <ClCompile Include="SelectMenu.cpp" />
+    <ClCompile Include="SH\FinishLine.cpp" />
+    <ClCompile Include="SH\FinishScene.cpp" />
+    <ClCompile Include="SH\Skiing.cpp" />
+    <ClCompile Include="SH\SkiingFlag.cpp" />
+    <ClCompile Include="SH\SkiingJumpingBoard.cpp" />
+    <ClCompile Include="SH\SkiingPlayer.cpp" />
+    <ClCompile Include="SH\SkiingSnowman.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="230608.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="230608.ico" />
+    <Image Include="small.ico" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

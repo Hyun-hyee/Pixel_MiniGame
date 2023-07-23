@@ -1,0 +1,424 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="01. Obj">
+      <UniqueIdentifier>{27bb55d6-5a87-4ce1-8d5d-f72fd9b97371}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="99.Design">
+      <UniqueIdentifier>{7b3d76db-169d-4991-b478-10a4d78c460b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="99.Design\00.ObjFactory">
+      <UniqueIdentifier>{1fc74d2c-13c1-4a23-9ed6-ca52bba53199}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="99.Design\01.CollisionManager">
+      <UniqueIdentifier>{27a1d4da-08b9-42af-8dcd-bd5e13215244}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="99.Design\02.ObjMgr">
+      <UniqueIdentifier>{cd66ce2a-ac8f-4453-9ef2-5ffe15e91aa6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="99.Design\03.LineMgr">
+      <UniqueIdentifier>{841150f8-f3af-4331-8bd9-7170f1889418}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.SceneManager">
+      <UniqueIdentifier>{dbd73fe1-8715-408d-8ab1-a85a045a2ebd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.SceneManager\00.Scene">
+      <UniqueIdentifier>{66684016-1245-4671-a04d-28a362e133ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="99.Design\04.KeyMgr">
+      <UniqueIdentifier>{02638caf-4df3-449d-a152-76cedc2e98db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98.Component">
+      <UniqueIdentifier>{0fb6d2d1-8727-437e-86d5-dd4f8ef4fa2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\00.Character">
+      <UniqueIdentifier>{15a115e4-1ec8-4acc-a13e-c11106a9e8fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\00.Character\00. Player">
+      <UniqueIdentifier>{a538927e-c2c1-40f9-93f1-1f42f6ff2455}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98.Component\00.Camera">
+      <UniqueIdentifier>{b7b961e2-27c3-4fad-8c6f-c0ae3a70a211}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Line">
+      <UniqueIdentifier>{b28fb68e-0c48-45d3-a45a-88e75e0a0cf2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="99.Design\05.BmpMgr">
+      <UniqueIdentifier>{0e1fc38c-e501-4175-99b6-ae57f909eca8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="99.Design\05.BmpMgr\BitMap">
+      <UniqueIdentifier>{447a2fed-3b91-4b1c-b07b-13292e2ad9db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="100.Header">
+      <UniqueIdentifier>{f2495b7b-2a1e-417d-828b-c7896f618b7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="99.Design\06.UIMgr">
+      <UniqueIdentifier>{2e15a604-8510-4dbf-8273-8d301b598282}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="99.Design\07.SoundMgr">
+      <UniqueIdentifier>{ed5e4b62-6deb-48d9-b2ee-8bb2e443f298}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\04.Wall">
+      <UniqueIdentifier>{173ab8a7-4b58-4220-bae8-83b5ed40bdbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.SceneManager\01.FirstStage">
+      <UniqueIdentifier>{f8fac6b2-f514-4791-8b5f-dfbd97179bba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.SceneManager\02.PuzzleBobble">
+      <UniqueIdentifier>{f2647751-1ace-4983-b377-edcfe69b0a38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\00.Character\BubbleGun">
+      <UniqueIdentifier>{51cf9e85-c9f7-4c56-a171-3f06ac2b5836}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\Bubble">
+      <UniqueIdentifier>{b67a2e7f-7892-49d7-89a2-2c83168e7bfe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\00.Character\Tank">
+      <UniqueIdentifier>{323c7a77-36e3-4618-9171-746485524306}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\Bullet">
+      <UniqueIdentifier>{366fdff5-2777-4b75-aa9c-3ccff24d9a1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\Enemy">
+      <UniqueIdentifier>{4626d229-a95a-42e2-a71d-1019b82a6f5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\00.Character\Skiing">
+      <UniqueIdentifier>{6f8c796b-b576-47f4-8962-c8f4f8fce1c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.SceneManager\03.TankWar">
+      <UniqueIdentifier>{23c9dfcd-7d66-4cb5-b1a1-848f3016b71d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.SceneManager\04.Skiing">
+      <UniqueIdentifier>{f3bbf61c-a242-4414-95be-ae7c64f3f8e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.SceneManager\04.Skiing\00.SkiingStage">
+      <UniqueIdentifier>{d8a55589-8519-46ec-9770-94c9461113a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.SceneManager\04.Skiing\01.Flag">
+      <UniqueIdentifier>{a347f60b-412f-4e5c-a947-ba96ed8ac665}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.SceneManager\04.Skiing\02.JumpingBoard">
+      <UniqueIdentifier>{d3ce5988-ed02-495d-9d13-6e63b105f9c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.SceneManager\04.Skiing\03.FinishLine">
+      <UniqueIdentifier>{a590f7be-37ca-4227-8d56-f1b8190ea081}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.SceneManager\04.Skiing\04.FinishScene">
+      <UniqueIdentifier>{6f0489c2-cf48-46b4-a4cb-c40497c51505}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.SceneManager\04.Skiing\05.Snowman">
+      <UniqueIdentifier>{68eba9dd-f54f-4743-8997-abb3c807ad14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.SceneManager\05.WiremanStage">
+      <UniqueIdentifier>{44e251d2-eff7-4ac2-865b-edf421f16da5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\00.Character\Wireman">
+      <UniqueIdentifier>{16ab926b-701b-4fb2-a5a5-ee4d05eada94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\Brick">
+      <UniqueIdentifier>{7a54759c-7969-4be4-926e-792ea86b975b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\Circle">
+      <UniqueIdentifier>{a5dde3bf-d15f-4190-9faf-ef1ac3c5b202}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="99.Design\08.FrontMgr">
+      <UniqueIdentifier>{47c376cb-5cc7-4fdc-ad80-071e5450cde6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.SceneManager\00.SelectMenu">
+      <UniqueIdentifier>{e3ed759c-6297-4451-8591-3acd8f73281b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="230608.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CORE\Resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CORE\BmpMgr.h">
+      <Filter>99.Design\05.BmpMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="CORE\BitMap.h">
+      <Filter>99.Design\05.BmpMgr\BitMap</Filter>
+    </ClInclude>
+    <ClInclude Include="CORE\CollisionMgr.h">
+      <Filter>99.Design\01.CollisionManager</Filter>
+    </ClInclude>
+    <ClInclude Include="CORE\ObjMgr.h">
+      <Filter>99.Design\02.ObjMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="CORE\UIMgr.h">
+      <Filter>99.Design\06.UIMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="CORE\Scene.h">
+      <Filter>00.SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="CORE\SceneManager.h">
+      <Filter>00.SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="CORE\SoundMgr.h">
+      <Filter>99.Design\07.SoundMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="CORE\KeyMgr.h">
+      <Filter>99.Design\04.KeyMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="CORE\LineMgr.h">
+      <Filter>99.Design\03.LineMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="CORE\Line.h">
+      <Filter>02.Line</Filter>
+    </ClInclude>
+    <ClInclude Include="CORE\Player.h">
+      <Filter>01. Obj\00.Character\00. Player</Filter>
+    </ClInclude>
+    <ClInclude Include="CORE\Character.h">
+      <Filter>01. Obj\00.Character</Filter>
+    </ClInclude>
+    <ClInclude Include="CORE\CameraComponent.h">
+      <Filter>98.Component\00.Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="CORE\Wall.h">
+      <Filter>01. Obj\04.Wall</Filter>
+    </ClInclude>
+    <ClInclude Include="CORE\ObjFactory.h">
+      <Filter>99.Design\00.ObjFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="CORE\Component.h">
+      <Filter>98.Component</Filter>
+    </ClInclude>
+    <ClInclude Include="CORE\Obj.h">
+      <Filter>01. Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="CORE\Struct.h">
+      <Filter>100.Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CORE\Functor.h">
+      <Filter>100.Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CORE\Enum.h">
+      <Filter>100.Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CORE\Define.h">
+      <Filter>100.Header</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>100.Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CORE\FirstStage.h">
+      <Filter>00.SceneManager\01.FirstStage</Filter>
+    </ClInclude>
+    <ClInclude Include="HJ\PuzzleBobble.h">
+      <Filter>00.SceneManager\02.PuzzleBobble</Filter>
+    </ClInclude>
+    <ClInclude Include="HJ\BubbleGun.h">
+      <Filter>01. Obj\00.Character\BubbleGun</Filter>
+    </ClInclude>
+    <ClInclude Include="HJ\Bubble.h">
+      <Filter>01. Obj\Bubble</Filter>
+    </ClInclude>
+    <ClInclude Include="JH\TankWar.h">
+      <Filter>00.SceneManager\03.TankWar</Filter>
+    </ClInclude>
+    <ClInclude Include="JH\Tank.h">
+      <Filter>01. Obj\00.Character\Tank</Filter>
+    </ClInclude>
+    <ClInclude Include="JH\Bullet.h">
+      <Filter>01. Obj\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="JH\Enemy.h">
+      <Filter>01. Obj\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="SH\SkiingPlayer.h">
+      <Filter>01. Obj\00.Character\Skiing</Filter>
+    </ClInclude>
+    <ClInclude Include="SH\Skiing.h">
+      <Filter>00.SceneManager\04.Skiing\00.SkiingStage</Filter>
+    </ClInclude>
+    <ClInclude Include="SH\FinishLine.h">
+      <Filter>00.SceneManager\04.Skiing\03.FinishLine</Filter>
+    </ClInclude>
+    <ClInclude Include="SH\FinishScene.h">
+      <Filter>00.SceneManager\04.Skiing\04.FinishScene</Filter>
+    </ClInclude>
+    <ClInclude Include="SH\SkiingFlag.h">
+      <Filter>00.SceneManager\04.Skiing\01.Flag</Filter>
+    </ClInclude>
+    <ClInclude Include="SH\SkiingJumpingBoard.h">
+      <Filter>00.SceneManager\04.Skiing\02.JumpingBoard</Filter>
+    </ClInclude>
+    <ClInclude Include="SH\SkiingSnowman.h">
+      <Filter>00.SceneManager\04.Skiing\05.Snowman</Filter>
+    </ClInclude>
+    <ClInclude Include="EJ\WiremanStage.h">
+      <Filter>00.SceneManager\05.WiremanStage</Filter>
+    </ClInclude>
+    <ClInclude Include="EJ\Wireman.h">
+      <Filter>01. Obj\00.Character\Wireman</Filter>
+    </ClInclude>
+    <ClInclude Include="EJ\Brick.h">
+      <Filter>01. Obj\Brick</Filter>
+    </ClInclude>
+    <ClInclude Include="EJ\Circle.h">
+      <Filter>01. Obj\Circle</Filter>
+    </ClInclude>
+    <ClInclude Include="EJ\FontMgr.h">
+      <Filter>99.Design\08.FrontMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectMenu.h">
+      <Filter>00.SceneManager\00.SelectMenu</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="230608.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CORE\BitMap.cpp">
+      <Filter>99.Design\05.BmpMgr\BitMap</Filter>
+    </ClCompile>
+    <ClCompile Include="CORE\BmpMgr.cpp">
+      <Filter>99.Design\05.BmpMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CORE\CollisionMgr.cpp">
+      <Filter>99.Design\01.CollisionManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CORE\ObjMgr.cpp">
+      <Filter>99.Design\02.ObjMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CORE\UIMgr.cpp">
+      <Filter>99.Design\06.UIMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CORE\SceneManager.cpp">
+      <Filter>00.SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CORE\Scene.cpp">
+      <Filter>00.SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CORE\SoundMgr.cpp">
+      <Filter>99.Design\07.SoundMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CORE\KeyMgr.cpp">
+      <Filter>99.Design\04.KeyMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CORE\LineMgr.cpp">
+      <Filter>99.Design\03.LineMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CORE\Line.cpp">
+      <Filter>02.Line</Filter>
+    </ClCompile>
+    <ClCompile Include="CORE\Player.cpp">
+      <Filter>01. Obj\00.Character\00. Player</Filter>
+    </ClCompile>
+    <ClCompile Include="CORE\Character.cpp">
+      <Filter>01. Obj\00.Character</Filter>
+    </ClCompile>
+    <ClCompile Include="CORE\CameraComponent.cpp">
+      <Filter>98.Component\00.Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="CORE\Wall.cpp">
+      <Filter>01. Obj\04.Wall</Filter>
+    </ClCompile>
+    <ClCompile Include="CORE\Component.cpp">
+      <Filter>98.Component</Filter>
+    </ClCompile>
+    <ClCompile Include="CORE\Obj.cpp">
+      <Filter>01. Obj</Filter>
+    </ClCompile>
+    <ClCompile Include="CORE\FirstStage.cpp">
+      <Filter>00.SceneManager\01.FirstStage</Filter>
+    </ClCompile>
+    <ClCompile Include="HJ\PuzzleBobble.cpp">
+      <Filter>00.SceneManager\02.PuzzleBobble</Filter>
+    </ClCompile>
+    <ClCompile Include="HJ\BubbleGun.cpp">
+      <Filter>01. Obj\00.Character\BubbleGun</Filter>
+    </ClCompile>
+    <ClCompile Include="HJ\Bubble.cpp">
+      <Filter>01. Obj\Bubble</Filter>
+    </ClCompile>
+    <ClCompile Include="JH\TankWar.cpp">
+      <Filter>00.SceneManager\03.TankWar</Filter>
+    </ClCompile>
+    <ClCompile Include="JH\Tank.cpp">
+      <Filter>01. Obj\00.Character\Tank</Filter>
+    </ClCompile>
+    <ClCompile Include="JH\Bullet.cpp">
+      <Filter>01. Obj\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="JH\Enemy.cpp">
+      <Filter>01. Obj\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="SH\SkiingPlayer.cpp">
+      <Filter>01. Obj\00.Character\Skiing</Filter>
+    </ClCompile>
+    <ClCompile Include="SH\Skiing.cpp">
+      <Filter>00.SceneManager\04.Skiing\00.SkiingStage</Filter>
+    </ClCompile>
+    <ClCompile Include="SH\FinishLine.cpp">
+      <Filter>00.SceneManager\04.Skiing\03.FinishLine</Filter>
+    </ClCompile>
+    <ClCompile Include="SH\FinishScene.cpp">
+      <Filter>00.SceneManager\04.Skiing\04.FinishScene</Filter>
+    </ClCompile>
+    <ClCompile Include="SH\SkiingFlag.cpp">
+      <Filter>00.SceneManager\04.Skiing\01.Flag</Filter>
+    </ClCompile>
+    <ClCompile Include="SH\SkiingJumpingBoard.cpp">
+      <Filter>00.SceneManager\04.Skiing\02.JumpingBoard</Filter>
+    </ClCompile>
+    <ClCompile Include="SH\SkiingSnowman.cpp">
+      <Filter>00.SceneManager\04.Skiing\05.Snowman</Filter>
+    </ClCompile>
+    <ClCompile Include="EJ\WiremanStage.cpp">
+      <Filter>00.SceneManager\05.WiremanStage</Filter>
+    </ClCompile>
+    <ClCompile Include="EJ\Wireman.cpp">
+      <Filter>01. Obj\00.Character\Wireman</Filter>
+    </ClCompile>
+    <ClCompile Include="EJ\Brick.cpp">
+      <Filter>01. Obj\Brick</Filter>
+    </ClCompile>
+    <ClCompile Include="EJ\Circle.cpp">
+      <Filter>01. Obj\Circle</Filter>
+    </ClCompile>
+    <ClCompile Include="EJ\FontMgr.cpp">
+      <Filter>99.Design\08.FrontMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectMenu.cpp">
+      <Filter>00.SceneManager\00.SelectMenu</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="230608.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="230608.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
