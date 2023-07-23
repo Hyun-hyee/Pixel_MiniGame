@@ -159,13 +159,14 @@ void CObj::FrameRender(HDC hDC)
 
 
 	Gdiplus::ImageAttributes attr;
+	attr.SetColorKey(Gdiplus::Color(255, 0, 255), Gdiplus::Color(255, 0, 255),
+		Gdiplus::ColorAdjustTypeBitmap);
 
-	if (m_fFrontAngle == 0 || (m_FrameReverse == true && m_fFrontAngle == PI))
-	{
+	
 		g.DrawImage(pImage,
 			Gdiplus::Rect(
-				((int)(m_tInfo.fX - m_tInfo.fCX * 0.5f) - ((int)cameraPos.x - (ML + MCX / 2))),
-				((int)(m_tInfo.fY - m_tInfo.fCY * 0.5f) - ((int)cameraPos.y - (MT + MCY / 2))),
+				((int)(m_tInfo.fX - (int)m_FrameMap[m_State].iFrameSizeX * 0.5f) - ((int)cameraPos.x - (ML + MCX / 2))),
+				((int)(m_tInfo.fY - (int)m_FrameMap[m_State].iFrameSizeY * 0.5f) - ((int)cameraPos.y - (MT + MCY / 2))),
 				(int)m_FrameMap[m_State].iFrameSizeX, //복사 사이즈
 				(int)m_FrameMap[m_State].iFrameSizeY  //복사 사이즈
 			),
@@ -174,23 +175,7 @@ void CObj::FrameRender(HDC hDC)
 			(int)m_FrameMap[m_State].iFrameSizeX,
 			(int)m_FrameMap[m_State].iFrameSizeY, //이미지 원본 사이즈
 			Gdiplus::UnitPixel, &attr);
-	}
-	else if (m_fFrontAngle == PI || (m_FrameReverse == true && m_fFrontAngle == 0))
-	{
-		g.DrawImage(pImage,
-			Gdiplus::Rect(
-				((int)(m_tInfo.fX - m_tInfo.fCX * 0.5f) - ((int)cameraPos.x - (ML + MCX / 2))),
-				((int)(m_tInfo.fY - m_tInfo.fCY * 0.5f) - ((int)cameraPos.y - (MT + MCY / 2))),
-				(int)m_FrameMap[m_State].iFrameSizeX, //복사 사이즈
-				(int)m_FrameMap[m_State].iFrameSizeY //복사 사이즈
-			),
-			(m_FrameMap[m_State].iFrameEnd - m_FrameMap[m_State].iFrameStart) * (int)m_FrameMap[m_State].iFrameSizeX,
-			m_FrameMap[m_State].iMotion * (int)m_FrameMap[m_State].iFrameSizeY,
-			(int)m_FrameMap[m_State].iFrameSizeX,
-			(int)m_FrameMap[m_State].iFrameSizeY, //이미지 원본 사이즈
-			Gdiplus::UnitPixel, &attr);
-	}
-
+	
 
 }
 
@@ -212,8 +197,7 @@ void CObj::FrameRender_Size(HDC hDC, float _RatioX, float _RatioY)
 	attr.SetColorKey(Gdiplus::Color(255, 0, 255), Gdiplus::Color(255, 0, 255),
 		Gdiplus::ColorAdjustTypeBitmap);
 
-	if (m_fFrontAngle == 0)
-	{
+	
 		g.DrawImage(pImage,
 			Gdiplus::Rect(
 				((int)(m_tInfo.fX - m_tInfo.fCX * 0.5f) - ((int)cameraPos.x - (ML + MCX / 2))),
@@ -226,22 +210,8 @@ void CObj::FrameRender_Size(HDC hDC, float _RatioX, float _RatioY)
 			(int)m_FrameMap[m_State].iFrameSizeX,
 			(int)m_FrameMap[m_State].iFrameSizeY, //이미지 원본 사이즈
 			Gdiplus::UnitPixel, &attr);
-	}
-	else if (m_fFrontAngle == PI)
-	{
-		g.DrawImage(pImage,
-			Gdiplus::Rect(
-				((int)(m_tInfo.fX - m_tInfo.fCX * 0.5f) - ((int)cameraPos.x - (ML + MCX / 2))),
-				((int)(m_tInfo.fY - m_tInfo.fCY * 0.5f) - ((int)cameraPos.y - (MT + MCY / 2))),
-				(int)m_FrameMap[m_State].iFrameSizeX * _RatioX, //복사 사이즈
-				(int)m_FrameMap[m_State].iFrameSizeY * _RatioY  //복사 사이즈
-			),
-			(m_FrameMap[m_State].iFrameEnd - m_FrameMap[m_State].iFrameStart) * (int)m_FrameMap[m_State].iFrameSizeX,
-			m_FrameMap[m_State].iMotion * (int)m_FrameMap[m_State].iFrameSizeY,
-			(int)m_FrameMap[m_State].iFrameSizeX,
-			(int)m_FrameMap[m_State].iFrameSizeY, //이미지 원본 사이즈
-			Gdiplus::UnitPixel, &attr);
-	}
+	
+	
 }
 
 
@@ -260,6 +230,10 @@ void CObj::RotateRender(HDC hDC, float _angle)
 
 
 	Gdiplus::Graphics g(hDC);
+	
+	Gdiplus::ImageAttributes attr;
+	attr.SetColorKey(Gdiplus::Color(255, 0, 255), Gdiplus::Color(255, 0, 255),
+		Gdiplus::ColorAdjustTypeBitmap);
 
 	g.TranslateTransform((int)m_tInfo.fX - ((int)cameraPos.x - (ML + MCX / 2))
 		, (int)m_tInfo.fY - ((int)cameraPos.y - (MT + MCY / 2)));
@@ -271,8 +245,8 @@ void CObj::RotateRender(HDC hDC, float _angle)
 	//이미지 출력 (빠름, 알파블랜딩 X)
 	g.DrawImage(pImage,
 		Gdiplus::Rect(
-			((int)(m_tInfo.fX - m_tInfo.fCX * 0.5f) + ((int)cameraPos.x - (ML + MCX / 2))),
-			((int)(m_tInfo.fY - m_tInfo.fCY * 0.5f) + ((int)cameraPos.y - (MT + MCY / 2))),
+			((int)(m_tInfo.fX - pImage->GetWidth() *0.5f) + ((int)cameraPos.x - (ML + MCX / 2))),
+			((int)(m_tInfo.fY - pImage->GetHeight() * 0.5f) + ((int)cameraPos.y - (MT + MCY / 2))),
 			pImage->GetWidth(),  //복사 사이즈
 			pImage->GetHeight()//복사 사이즈
 		),
@@ -280,7 +254,7 @@ void CObj::RotateRender(HDC hDC, float _angle)
 		0,
 		pImage->GetWidth(),
 		pImage->GetHeight(), //이미지 원본 사이즈
-		Gdiplus::UnitPixel);
+		Gdiplus::UnitPixel, &attr);
 
 	g.ResetTransform();
 
@@ -319,8 +293,8 @@ void CObj::RotateFrameRender_Size(HDC hDC, float _angle, float _resizeX, float _
 			Gdiplus::Rect(
 				((int)m_tInfo.fX + ((int)cameraPos.x - (ML + MCX / 2))),
 				((int)m_tInfo.fY + ((int)cameraPos.y - (MT + MCY / 2))),
-				(int)m_FrameMap[m_State].iFrameSizeX * SMALL * _resizeX, //복사 사이즈
-				(int)m_FrameMap[m_State].iFrameSizeY * SMALL * _resizeY),//복사 사이즈
+				(int)m_FrameMap[m_State].iFrameSizeX *  _resizeX, //복사 사이즈
+				(int)m_FrameMap[m_State].iFrameSizeY *  _resizeY),//복사 사이즈
 
 			m_FrameMap[m_State].iMotion * (int)m_FrameMap[m_State].iFrameSizeX,
 			m_FrameMap[m_State].iFrameStart * (int)m_FrameMap[m_State].iFrameSizeY,

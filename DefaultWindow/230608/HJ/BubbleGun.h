@@ -24,8 +24,18 @@ private:
 	void		StateUpdate();
 
 	int					m_PlayerSoundCh;
-
+	int					m_PrevBubble;
 public:
 	void				PlayerPlaySound(TCHAR* _name);
+	void				ShootBubble();
+
+
+private:
+	CObj*		LastBubble;
+public:
+	void		SetLastBubble(CObj* _bubble) { LastBubble = _bubble; }
+	void		ResetLastBubble() { LastBubble = nullptr; }
+	CObj*		GetLastBubble() { return LastBubble; }
+	bool		CheckLastBubble() { if (LastBubble != nullptr) return true; else return false; }
 };
 

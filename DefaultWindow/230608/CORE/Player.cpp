@@ -222,7 +222,6 @@ void CPlayer::StateUpdate()
 	{
 		m_FrameMap[m_State].iFrameStart = 0;
 		m_FrameMap[m_State].dwTime = GetTickCount64();
-		
 	}
 
 	switch (m_State)

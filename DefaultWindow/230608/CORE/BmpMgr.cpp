@@ -40,7 +40,7 @@ void CBmpMgr::Insert_Bmp(const TCHAR* pFilePath, const TCHAR* pImgKey)
 		CBitMap* pBmp = new CBitMap;
 		pBmp->Load_Bmp(pFilePath);
 
-		AlphaBlending(pBmp->Get_Image());
+		//AlphaBlending(pBmp->Get_Image());
 		m_mapBit.insert({ pImgKey, pBmp });
 
 		////*************************Red ver*************************//

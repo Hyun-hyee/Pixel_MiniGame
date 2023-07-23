@@ -18,6 +18,8 @@ CObjMgr::~CObjMgr()
 void CObjMgr::Initialize()
 {
 	m_CheckPairMap.insert({ PLAYER, OBJ_NONE });
+	m_CheckPairMap.insert({ BUBBLE, WALL });
+	m_CheckPairMap.insert({ BUBBLE, BUBBLE });
 }
 
 void CObjMgr::Update()
@@ -29,9 +31,9 @@ void CObjMgr::Update()
 		{
 			(*iter)->Update();
 		}
-		
-		
-
+	}
+	for (int i = 0; i < OBJ_TYPE_END; ++i)
+	{
 		for (int r = 0; r < OBJ_TYPE_END; ++r)
 		{
 			for (const auto iter : m_CheckPairMap)
@@ -41,6 +43,7 @@ void CObjMgr::Update()
 			}
 		}
 	}
+	
 }
 
 void CObjMgr::LateUpdate()

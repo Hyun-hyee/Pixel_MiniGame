@@ -17,6 +17,7 @@ CSceneManager* CSceneManager::m_pInstance = nullptr;
 bool g_SlowMotion = false;
 bool g_CollideCheck = false;
 DWORD g_SlowJumpTime = 0;
+Gdiplus::PrivateFontCollection fontCollection;
 
 CSceneManager::CSceneManager()
 {
@@ -54,6 +55,7 @@ void CSceneManager::Initialize()
 	//SoundMgr
 	CSoundMgr::Get_Instance()->Initialize();
 	
+
 	//Scene »ý¼º
 	SceneList.push_back(new CPuzzleBobble);
 	SceneList.back()->Initialize();

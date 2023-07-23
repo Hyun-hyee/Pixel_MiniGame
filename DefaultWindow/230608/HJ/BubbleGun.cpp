@@ -12,7 +12,7 @@
 #include "CameraComponent.h"
 #include "UIMgr.h"
 #include "SoundMgr.h"
-
+#include "Bubble.h"
 
 CBubbleGun::CBubbleGun()
 {
@@ -27,15 +27,15 @@ CBubbleGun::~CBubbleGun()
 void CBubbleGun::Initialize(void)
 {
 	m_tInfo = { 200.f, 200.f, 200.f, 200.f };
-	m_vInfo.vPos = { ML + MCX / 2.f, MT +610.f, 0.f };
+	m_vInfo.vPos = { ML + MCX / 2.f, MT +570.f, 0.f };
 	m_vInfo.vLook = { 0.f,-1.f,0.f };
 	m_vInfo.vDir = m_vInfo.vLook;
 
-	m_vPoint.push_back({ -100.f,-100.f,0.f });
-	m_vPoint.push_back({ 100.f,-100.f,0.f });
-	m_vPoint.push_back({ 150.f,0.f,0.f });
-	m_vPoint.push_back({ 100.f,100.f,0.f });
-	m_vPoint.push_back({ -100.f,100.f,0.f });
+	m_vPoint.push_back({ -30.f,-30.f,0.f });
+	m_vPoint.push_back({ 0.f,-60.f,0.f });
+	m_vPoint.push_back({ 30.f,-30.f,0.f });
+	m_vPoint.push_back({ 30.f,30.f,0.f });
+	m_vPoint.push_back({ -30.f,30.f,0.f });
 
 	for (auto& iter : m_vPoint)
 	{
@@ -46,8 +46,27 @@ void CBubbleGun::Initialize(void)
 	m_fAccel = 0.2f;
 	m_fSpeed = 7.f;
 	m_PlayerSoundCh = 0;
-
+	m_PrevBubble = 0;	
+	LastBubble = nullptr;
+	
 	InitImage();
+	CObj* Temp = CObjFactory<CBubble>::Create();
+	Temp->Set_State(BUBBLE_RED);
+	Temp->SetPos(m_vInfo.vPos.x, m_vInfo.vPos.y);
+	Temp->SetMoveAngle(-m_fAngle + D3DX_PI / 2.f);
+	CObjMgr::Get_Instance()->Add_Object(BUBBLE, Temp);
+
+	Temp = CObjFactory<CBubble>::Create();
+	Temp->Set_State(BUBBLE_RED);
+	Temp->SetPos(m_vInfo.vPos.x, m_vInfo.vPos.y);
+	Temp->SetMoveAngle(-m_fAngle + D3DX_PI / 2.f);
+	CObjMgr::Get_Instance()->Add_Object(BUBBLE, Temp);
+
+	Temp = CObjFactory<CBubble>::Create();
+	Temp->Set_State(BUBBLE_RED);
+	Temp->SetPos(m_vInfo.vPos.x - 80.f, m_vInfo.vPos.y + 20.f);
+	Temp->SetMoveAngle(-m_fAngle + D3DX_PI / 2.f);
+	CObjMgr::Get_Instance()->Add_Object(BUBBLE, Temp);
 }
 
 void CBubbleGun::Update(void)
@@ -83,19 +102,7 @@ void CBubbleGun::LateUpdate(void)
 
 void CBubbleGun::Render(HDC hDC)
 {
-	if (m_fFrontAngle == 0)
-	{
-		m_FrameMap[m_State].iMotion = 0;
-	}
-	else if (m_fFrontAngle == PI)
-	{
-		m_FrameMap[m_State].iMotion = 1;
-	}
-
-
-	//if (g_CollideCheck)
-	CObj::CollideRender(hDC);
-
+	CObj::RotateRender(hDC, D3DXToDegree(m_fAngle));
 }
 
 void CBubbleGun::Release(void)
@@ -104,20 +111,8 @@ void CBubbleGun::Release(void)
 
 void CBubbleGun::InitImage()
 {
-	/*CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/images/player/player_idle_11x2.bmp", L"Player_IDLE");
-
-	FRAME TempFrame;
-	TempFrame.AnimKey = L"Player_IDLE";
-	TempFrame.iFrameStart = 0;
-	TempFrame.iFrameEnd = 10;
-	TempFrame.iMotion = 0;
-	TempFrame.dwSpeed = 60;
-	TempFrame.dwTime = GetTickCount64();
-	TempFrame.iFrameSizeX = 70;
-	TempFrame.iFrameSizeY = 70;
-
-	m_FrameMap.insert({ IDLE, TempFrame });*/
-
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Arrow.bmp", L"ARROW");
+	m_OneImgKey = L"ARROW";
 }
 
 
@@ -130,17 +125,10 @@ void CBubbleGun::Key_Input(void)
 	if (CKeyMgr::Get_Instance()->Key_Pressing('D'))
 		m_fAngle += D3DXToRadian(3.f);
 
-	/*if (CKeyMgr::Get_Instance()->Key_Pressing('W'))
-	{
-		D3DXVec3TransformNormal(&m_vInfo.vDir, &m_vInfo.vLook, &m_vInfo.matWorld);
-		m_vInfo.vPos += m_vInfo.vDir * m_fSpeed;
-	}
 
-	if (CKeyMgr::Get_Instance()->Key_Pressing('S'))
-	{
-		D3DXVec3TransformNormal(&m_vInfo.vDir, &m_vInfo.vLook, &m_vInfo.matWorld);
-		m_vInfo.vPos -= m_vInfo.vDir * m_fSpeed;
-	}*/
+
+	if (CKeyMgr::Get_Instance()->Key_Down(VK_SPACE))
+		ShootBubble();
 
 }
 
@@ -184,6 +172,46 @@ void CBubbleGun::PlayerPlaySound(TCHAR* _name)
 		m_PlayerSoundCh = 0;
 }
 
+void CBubbleGun::ShootBubble()
+{
+	if (!GameOver && !GameClear)
+	{
+		list<CObj*>::iterator iter = CObjMgr::Get_Instance()->Get_ObjList(BUBBLE)->end();
+		iter--;
+		iter--;
+		CObj* Temp = *iter;
+		Temp->SetPos(m_vInfo.vPos.x, m_vInfo.vPos.y);
+		Temp->SetMoveAngle(-m_fAngle + D3DX_PI / 2.f);
+		dynamic_cast<CBubble*>(Temp)->SetShoot(true);
+		SetLastBubble(Temp);
+
+		//대기
+		m_PrevBubble = rand() % 5;
+		iter++;
+		(*iter)->SetPos(m_vInfo.vPos.x, m_vInfo.vPos.y);
+
+		//대기
+		m_PrevBubble = rand() % 5;
+		Temp = CObjFactory<CBubble>::Create();
+
+		if (m_PrevBubble == 0)
+			Temp->Set_State(BUBBLE_RED);
+		else if (m_PrevBubble == 1)
+			Temp->Set_State(BUBBLE_GREEN);
+		else if (m_PrevBubble == 2)
+			Temp->Set_State(BUBBLE_BLUE);
+		else if (m_PrevBubble == 3)
+			Temp->Set_State(BUBBLE_YELLOW);
+		else if (m_PrevBubble == 4)
+			Temp->Set_State(BUBBLE_PURPLE);
+
+		Temp->SetPos(m_vInfo.vPos.x - 80.f, m_vInfo.vPos.y + 20.f);
+		CObjMgr::Get_Instance()->Add_Object(BUBBLE, Temp);
+		PlayerPlaySound(L"Bubble_Shoot.wav");
+	}
+
+
+}
 
 
 

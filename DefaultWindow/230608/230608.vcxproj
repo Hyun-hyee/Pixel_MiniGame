@@ -185,6 +185,7 @@
     <ClInclude Include="CORE\Struct.h" />
     <ClInclude Include="CORE\UIMgr.h" />
     <ClInclude Include="CORE\Wall.h" />
+    <ClInclude Include="HJ\Bubble.h" />
     <ClInclude Include="HJ\BubbleGun.h" />
     <ClInclude Include="HJ\PuzzleBobble.h" />
     <ClInclude Include="stdafx.h" />
@@ -210,6 +211,7 @@
     <ClCompile Include="CORE\SoundMgr.cpp" />
     <ClCompile Include="CORE\UIMgr.cpp" />
     <ClCompile Include="CORE\Wall.cpp" />
+    <ClCompile Include="HJ\Bubble.cpp" />
     <ClCompile Include="HJ\BubbleGun.cpp" />
     <ClCompile Include="HJ\PuzzleBobble.cpp" />
     <ClCompile Include="stdafx.cpp">

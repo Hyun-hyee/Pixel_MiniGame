@@ -82,6 +82,9 @@
     <Filter Include="01. Obj\00.Character\BubbleGun">
       <UniqueIdentifier>{51cf9e85-c9f7-4c56-a171-3f06ac2b5836}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\Bubble">
+      <UniqueIdentifier>{b67a2e7f-7892-49d7-89a2-2c83168e7bfe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -174,6 +177,9 @@
     <ClInclude Include="HJ\BubbleGun.h">
       <Filter>01. Obj\00.Character\BubbleGun</Filter>
     </ClInclude>
+    <ClInclude Include="HJ\Bubble.h">
+      <Filter>01. Obj\Bubble</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="230608.cpp">
@@ -241,6 +247,9 @@
     </ClCompile>
     <ClCompile Include="HJ\BubbleGun.cpp">
       <Filter>01. Obj\00.Character\BubbleGun</Filter>
+    </ClCompile>
+    <ClCompile Include="HJ\Bubble.cpp">
+      <Filter>01. Obj\Bubble</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

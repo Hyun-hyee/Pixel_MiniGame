@@ -28,6 +28,10 @@
 extern HWND		g_hWnd;
 extern bool		g_CollideCheck;
 
+extern bool		GameOver;
+extern bool		GameClear;
+extern Gdiplus::PrivateFontCollection fontCollection;
+
 #define		SOUND_VOL1	 1.f
 #define		SOUND_VOL2	 0.9f
 #define		SOUND_VOL3	 0.6f

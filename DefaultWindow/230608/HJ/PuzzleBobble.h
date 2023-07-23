@@ -1,5 +1,8 @@
 #pragma once
 #include "Scene.h"
+
+class CObj;
+
 class CPuzzleBobble :
     public CScene
 {
@@ -13,6 +16,12 @@ public:
 	void		LateUpdate();
 	void		Render(HDC _hDC);
 	void		Release();
+
+private:
+	DWORD		m_DownTime;
+	CObj*		DownWall;
+
+	bool		bHurry;
 
 };
 

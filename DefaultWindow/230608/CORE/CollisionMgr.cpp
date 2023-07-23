@@ -43,13 +43,13 @@ void CCollisionMgr::Update(list<CObj*> _firstList, list<CObj*> _secondList)
 					auto Searchiter = find(m_CollisionOutMap.begin(), m_CollisionOutMap.end(), SearchPair);
 					float test = D3DXToDegree(vAngle);
 					//OnCollision 이벤트
-					ObjEvent = (iter)->OnCollision((iter2), vDIR,vAngle);
 					if (Searchiter == m_CollisionOutMap.end())
 					{
 						//InCollision 이벤트
 						m_CollisionOutMap.push_back({ iter,iter2 });
 						ObjEvent = (iter)->InCollision((iter2), vDIR, vAngle);
 					}
+					ObjEvent = (iter)->OnCollision((iter2), vDIR, vAngle);
 					
 				}
 				else
@@ -160,17 +160,13 @@ bool CCollisionMgr::PolygonCollision(const std::vector<D3DXVECTOR3>& polygon1, c
     // 충돌하는 경우, 충돌 방향(normal 벡터)과 회전 각을 반환
     collisionNormal = minOverlapAxis;
 
-    if (collisionEdgeIndex1 != -1) {
-        // 다각형 1의 충돌한 변의 회전 각 계산
-        D3DXVECTOR3 edge = polygon1[(collisionEdgeIndex1 + 1) % numVertices1] - polygon1[collisionEdgeIndex1];
-        D3DXVECTOR3 edgeNormal = { -edge.y, edge.x, 0.0f }; // 변의 normal 벡터
-        D3DXVec3Normalize(&edgeNormal, &edgeNormal);
-        D3DXVECTOR3 referenceAxis = { 1.0f, 0.0f, 0.0f }; // x축과의 참조 축
+    
+    // 두 벡터 사이의 회전 각 계산
+	D3DXVECTOR3 axisX = { 1.f,0.f,0.f };
+	collisionAngle = acosf(D3DXVec3Dot(&collisionNormal, &axisX));
 
-        // 두 벡터 사이의 회전 각 계산
-        collisionAngle = acosf(D3DXVec3Dot(&edgeNormal, &referenceAxis));
-    }
-
+	if (collisionNormal.y > 0.f)
+		collisionAngle += D3DX_PI / 2.f;
 	return true;
 }
 
@@ -182,10 +178,10 @@ bool CCollisionMgr::AxisOverlap(const std::vector<D3DXVECTOR3>& polygon1, const 
 	// 다각형 1의 최소, 최대 투영값 계산
 	for (int i = 1; i < polygon1.size(); ++i) {
 		float projection = D3DXVec3Dot(&axis, &polygon1[i]);
-		if (projection < min1) {
+		if (projection <= min1) {
 			min1 = projection;
 		}
-		else if (projection > max1) {
+		else if (projection >= max1) {
 			max1 = projection;
 		}
 	}
@@ -196,10 +192,10 @@ bool CCollisionMgr::AxisOverlap(const std::vector<D3DXVECTOR3>& polygon1, const 
 	// 다각형 2의 최소, 최대 투영값 계산
 	for (int i = 1; i < polygon2.size(); ++i) {
 		float projection = D3DXVec3Dot(&axis, &polygon2[i]);
-		if (projection < min2) {
+		if (projection <= min2) {
 			min2 = projection;
 		}
-		else if (projection > max2) {
+		else if (projection >= max2) {
 			max2 = projection;
 		}
 	}
