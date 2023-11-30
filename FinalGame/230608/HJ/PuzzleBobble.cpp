@@ -28,6 +28,13 @@ CPuzzleBobble::~CPuzzleBobble()
 
 void CPuzzleBobble::Initialize()
 {
+
+	GameOver = false;
+	GameClear = false;
+	BubbleScore = 0;
+
+
+
 	////배경 이미지 경로
 	CBmpMgr::Get_Instance()->Insert_Bmp_Background(L"../Resource/puzzle_back.bmp", L"PuzzleBobble");
 	CSceneManager::Get_Instance()->Set_BackSize({ 840, 640 });
